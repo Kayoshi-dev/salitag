@@ -12,6 +12,9 @@ export const load: PageServerLoad = async () => {
 	const wordOfTheDay = await prisma.word.findFirstOrThrow({
 		where: {
 			id: randomIndex
+		},
+		orderBy: {
+			id: 'asc'
 		}
 	});
 
