@@ -5,6 +5,10 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>Salitag | Learn one Tagalog word per day</title>
+</svelte:head>
+
 <div class="min-h-screen min-w-screen flex flex-col justify-center items-center antialiased">
 	<h1 class="text-4xl">Salitag</h1>
 	<Subtitle />

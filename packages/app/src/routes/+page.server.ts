@@ -3,7 +3,8 @@ import type { PageServerLoad } from './$types';
 import seedrandom from 'seedrandom';
 
 export const load: PageServerLoad = async () => {
-	const seed = seedrandom(Date.now.toString());
+	const currentDate = new Date().toJSON().slice(0, 10);
+	const seed = seedrandom(currentDate);
 
 	const wordRecordsCount = await prisma.word.count();
 
@@ -11,7 +12,10 @@ export const load: PageServerLoad = async () => {
 
 	const wordOfTheDay = await prisma.word.findFirstOrThrow({
 		where: {
-			id: randomIndex
+			id: randomIndex,
+			definition: {
+				not: null
+			}
 		},
 		orderBy: {
 			id: 'asc'
