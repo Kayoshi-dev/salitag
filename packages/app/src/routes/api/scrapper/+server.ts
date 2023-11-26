@@ -1,7 +1,7 @@
-import booter from '$lib/scrapper.js';
+// import booter from '$lib/scrapper.js';
 
 export async function GET() {
-	booter();
+	// booter();
 
 	return new Response('booting....', {
 		headers: {
