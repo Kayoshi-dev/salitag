@@ -1,5 +1,8 @@
-import booter from '$lib/scrapper.js';
 // import prisma from '$lib/prisma.js';
+
+import prisma from '$lib/prisma';
+import { json } from '@sveltejs/kit';
+import seedrandom from 'seedrandom';
 
 // export async function POST({ request }) {
 // 	const { word, definition, type } = await request.json();
@@ -21,9 +24,26 @@ import booter from '$lib/scrapper.js';
 // }
 
 export async function GET() {
-	booter();
+	const currentDate = new Date().toJSON().slice(0, 10);
+	const seed = seedrandom(currentDate);
 
-	return new Response('booting....', {
+	const wordRecordsCount = await prisma.word.count();
+
+	const randomIndex = Math.floor(seed() * wordRecordsCount);
+
+	const wordOfTheDay = await prisma.word.findFirstOrThrow({
+		where: {
+			id: randomIndex,
+			definition: {
+				not: null
+			}
+		},
+		orderBy: {
+			id: 'asc'
+		}
+	});
+
+	return json(wordOfTheDay, {
 		headers: {
 			'Content-Type': 'application/json'
 		}
