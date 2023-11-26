@@ -1,14 +1,12 @@
 import satori from 'satori';
 import { html } from 'satori-html';
-import type { Word } from '@prisma/client';
 import { Resvg } from '@resvg/resvg-js';
 
 export async function GET({ url }) {
 	const fontFile = await fetch(url.origin + '/fonts/Inter-Bold.ttf');
 	const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 
-	const wotdResponse = await fetch(url.origin + '/api');
-	const wotd: Word = await wotdResponse.json();
+	const wotd: string | undefined = url.searchParams.get('word') ?? undefined;
 
 	// The PH flag might not be displayed when testing in localhost
 	const svg = await satori(
@@ -16,7 +14,7 @@ export async function GET({ url }) {
 			<div tw="text-4xl font-bold pl-7 pt-5">🇵🇭 Salitag</div>
 			<div tw="w-full h-85 justify-center flex flex-col items-center ">
 				<span tw="text-4xl font-bold">Today's word :</span>
-				<span tw="capitalize text-7xl font-bold text-blue-500">${wotd.word}</span>
+				<span tw="capitalize text-7xl font-bold text-blue-500">${wotd}</span>
 			</div>
 			<div tw="flex justify-center font-bold text-gray-600">
 				Learn one word of Tagalog per day on salitag.vercel.app

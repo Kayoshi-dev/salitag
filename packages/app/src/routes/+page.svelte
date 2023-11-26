@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<meta property="og:image" content={data.originOG} />
+	<meta property="og:image" content={`${data.originOG}?word=${data.word.word}`} />
 </svelte:head>
 
 <div class="min-h-screen min-w-screen flex flex-col justify-center items-center antialiased">
