@@ -7,7 +7,7 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			external: ['@resvg/resvg-js', 'sharp']
+			external: ['sharp']
 		})
 	}
 };

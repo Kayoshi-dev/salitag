@@ -38,7 +38,6 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "5.6.0",
-		"@resvg/resvg-js": "^2.6.0",
 		"@sveltejs/adapter-vercel": "^3.1.0",
 		"satori": "^0.10.11",
 		"satori-html": "^0.3.2",
