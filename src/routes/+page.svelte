@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>Salitag | Learn one Tagalog word per day</title>
+	<meta property="og:image" content={`${data.originOG}?word=${data.word.word}`} />
 </svelte:head>
 
 <div class="min-h-screen min-w-screen flex flex-col justify-center items-center antialiased">
