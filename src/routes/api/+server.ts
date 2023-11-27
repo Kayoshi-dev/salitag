@@ -27,7 +27,13 @@ export async function GET() {
 	const currentDate = new Date().toJSON().slice(0, 10);
 	const seed = seedrandom(currentDate);
 
-	const wordRecordsCount = await prisma.word.count();
+	const wordRecordsCount = await prisma.word.count({
+		where: {
+			definition: {
+				not: null
+			}
+		}
+	});
 
 	const randomIndex = Math.floor(seed() * wordRecordsCount);
 
