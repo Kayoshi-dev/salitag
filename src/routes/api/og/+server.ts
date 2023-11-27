@@ -1,6 +1,6 @@
 import satori from 'satori';
 import { html } from 'satori-html';
-import { Resvg } from '@resvg/resvg-js';
+import sharp from 'sharp';
 
 export async function GET({ url }) {
 	try {
@@ -38,18 +38,11 @@ export async function GET({ url }) {
 			}
 		);
 
-		const resvg = new Resvg(svg, {
-			fitTo: {
-				mode: 'width',
-				value: 1024
-			}
-		});
+		const png = await sharp(Buffer.from(svg)).png().toFormat('png').toBuffer();
 
-		const png = resvg.render();
-
-		return new Response(png.asPng(), {
+		return new Response(png, {
 			headers: {
-				'content-type': 'image/png'
+				'Content-Type': 'image/png'
 			}
 		});
 	} catch (e) {

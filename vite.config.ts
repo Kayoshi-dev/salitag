@@ -5,10 +5,10 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	build: {
 		rollupOptions: {
-			external: ['@resvg/resvg-js']
+			external: ['@resvg/resvg-js', 'sharp']
 		}
 	},
 	optimizeDeps: {
-		exclude: ['@resvg/resvg-js']
+		exclude: ['@resvg/resvg-js', 'sharp']
 	}
 });
