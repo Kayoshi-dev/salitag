@@ -3,52 +3,56 @@ import { html } from 'satori-html';
 import { Resvg } from '@resvg/resvg-js';
 
 export async function GET({ url }) {
-	const fontFile = await fetch(url.origin + '/fonts/Inter-Bold.ttf');
-	const fontData: ArrayBuffer = await fontFile.arrayBuffer();
+	try {
+		const fontFile = await fetch(url.origin + '/fonts/Inter-Bold.ttf');
+		const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 
-	const wotd: string | undefined = url.searchParams.get('word') ?? undefined;
+		const wotd: string | undefined = url.searchParams.get('word') ?? undefined;
 
-	// The PH flag might not be displayed when testing in localhost
-	const svg = await satori(
-		html`<div tw="w-full h-full flex flex-col bg-gray-50">
-			<div tw="text-4xl font-bold pl-7 pt-5">🇵🇭 Salitag</div>
-			<div tw="w-full h-85 justify-center flex flex-col items-center ">
-				<span tw="text-4xl font-bold">Today's word :</span>
-				<span tw="capitalize text-7xl font-bold text-blue-500">${wotd}</span>
-			</div>
-			<div tw="flex justify-center font-bold text-gray-600">
-				Learn one word of Tagalog per day on salitag.vercel.app
-			</div>
-		</div>`,
-		{
-			height: 512,
-			width: 1024,
-			fonts: [
-				{
-					weight: 400,
-					style: 'normal',
-					name: 'Inter regular',
-					data: fontData
+		// The PH flag might not be displayed when testing in localhost
+		const svg = await satori(
+			html`<div tw="w-full h-full flex flex-col bg-gray-50">
+				<div tw="text-4xl font-bold pl-7 pt-5">🇵🇭 Salitag</div>
+				<div tw="w-full h-85 justify-center flex flex-col items-center ">
+					<span tw="text-4xl font-bold">Today's word :</span>
+					<span tw="capitalize text-7xl font-bold text-blue-500">${wotd}</span>
+				</div>
+				<div tw="flex justify-center font-bold text-gray-600">
+					Learn one word of Tagalog per day on salitag.vercel.app
+				</div>
+			</div>`,
+			{
+				height: 512,
+				width: 1024,
+				fonts: [
+					{
+						weight: 400,
+						style: 'normal',
+						name: 'Inter regular',
+						data: fontData
+					}
+				],
+				graphemeImages: {
+					'🇵🇭': url.origin + '/1f1f5-1f1ed.svg'
 				}
-			],
-			graphemeImages: {
-				'🇵🇭': url.origin + '/1f1f5-1f1ed.svg'
 			}
-		}
-	);
+		);
 
-	const resvg = new Resvg(svg, {
-		fitTo: {
-			mode: 'width',
-			value: 1024
-		}
-	});
+		const resvg = new Resvg(svg, {
+			fitTo: {
+				mode: 'width',
+				value: 1024
+			}
+		});
 
-	const png = resvg.render();
+		const png = resvg.render();
 
-	return new Response(png.asPng(), {
-		headers: {
-			'content-type': 'image/png'
-		}
-	});
+		return new Response(png.asPng(), {
+			headers: {
+				'content-type': 'image/png'
+			}
+		});
+	} catch (e) {
+		console.error(e);
+	}
 }
