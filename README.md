@@ -1,7 +1,7 @@
 <h1 align="center">Salitag</h1>
 
 <p align="center">
-  <img width="460" height="300" src="https://freeimage.host/i/JoWMzWQ">
+  <img width="460" height="300" src="./static/preview.png">
 </p>
 
 Salitag is a little side project I made to help me and encourage me to learn more about the Tagalog language.
