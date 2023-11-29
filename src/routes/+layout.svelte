@@ -1,5 +1,36 @@
 <script>
 	import '../app.css';
+	import { browser } from '$app/environment';
+	import MainTitle from '../components/MainTitle.svelte';
+	import ThemeSwitcher from '../components/ThemeSwitcher.svelte';
+	import { theme } from '$lib/ThemeStore';
+
+	theme.subscribe(() => {
+		handleSwitchDarkMode();
+	});
+
+	function handleSwitchDarkMode() {
+		if (browser) {
+			if ($theme === 'dark') {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		}
+	}
 </script>
 
-<slot />
+<div
+	class="h-screen min-w-screen flex flex-col justify-between items-center antialiased bg-slate-100 dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800"
+>
+	<nav class="flex">
+		<div class="flex flex-col">
+			<MainTitle />
+			<h2 class="text-gray-800 dark:text-slate-200 italic">One tagalog word per day</h2>
+		</div>
+		<div class="flex items-center">
+			<ThemeSwitcher />
+		</div>
+	</nav>
+	<slot />
+</div>

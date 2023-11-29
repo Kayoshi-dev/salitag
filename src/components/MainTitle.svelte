@@ -5,7 +5,7 @@
 </script>
 
 <h1
-	class="text-4xl relative h-10 font-bold tracking-tight"
+	class="text-4xl relative h-10 font-bold tracking-tight text-black dark:text-white"
 	on:mouseover={() => (isHovering = true)}
 	on:focus={() => {}}
 	on:mouseleave={() => (isHovering = false)}
