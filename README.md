@@ -16,7 +16,7 @@ To create this Website I worked with SvelteKit, also, because I needed to fill m
 
 - [ ] Make the scrapper more flexible
 
-- [ ] Improve the app UI
+- [x] Improve the app UI
 
 - [x] Generate the Open Graph dynamically with Satori
 

@@ -28,7 +28,7 @@
 	<nav class="fixed">
 		<div class="flex flex-col">
 			<MainTitle />
-			<h2 class="text-gray-800 dark:text-slate-200 italic">One tagalog word per day</h2>
+			<h2 class="text-gray-800 dark:text-slate-200 italic pb-3">One tagalog word per day</h2>
 			<ThemeSwitcher />
 		</div>
 	</nav>
