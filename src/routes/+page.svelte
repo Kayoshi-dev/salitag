@@ -9,10 +9,10 @@
 	<meta property="og:image" content={`${data.originOG}?word=${data.word.word}`} />
 </svelte:head>
 
-<main class="flex flex-1 flex-col justify-center">
+<main class="flex flex-col justify-center h-screen">
 	<Word word={data.word.word} />
 	<div class="flex flex-col items-center">
-		<h2>{data.word.definition}</h2>
-		<i>{data.word.type}</i>
+		<h2 class="dark:text-white">{data.word.definition}</h2>
+		<i class="dark:text-white">{data.word.type}</i>
 	</div>
 </main>

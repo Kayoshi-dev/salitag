@@ -13,24 +13,25 @@
 		if (browser) {
 			if ($theme === 'dark') {
 				document.documentElement.classList.add('dark');
+				localStorage.setItem('theme', 'dark');
 			} else {
 				document.documentElement.classList.remove('dark');
+				localStorage.setItem('theme', 'light');
 			}
 		}
 	}
 </script>
 
 <div
-	class="h-screen min-w-screen flex flex-col justify-between items-center antialiased bg-slate-100 dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800"
+	class="h-screen min-w-screen flex flex-col items-center antialiased bg-slate-100 dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800"
 >
-	<nav class="flex">
+	<nav class="fixed">
 		<div class="flex flex-col">
 			<MainTitle />
 			<h2 class="text-gray-800 dark:text-slate-200 italic">One tagalog word per day</h2>
-		</div>
-		<div class="flex items-center">
 			<ThemeSwitcher />
 		</div>
 	</nav>
+
 	<slot />
 </div>
