@@ -1,6 +1,8 @@
 <h1 align="center">Salitag</h1>
 
-[![JoWMzWQ.md.png](https://iili.io/JoWMzWQ.md.png)](https://freeimage.host/i/JoWMzWQ)
+<p align="center">
+  <img width="460" height="300" src="./static/preview.png">
+</p>
 
 Salitag is a little side project I made to help me and encourage me to learn more about the Tagalog language.
 
@@ -10,17 +12,17 @@ To create this Website I worked with SvelteKit, also, because I needed to fill m
 
 ## Roadmap
 
-- Fix null description in the scrapper.ts
+- [ ] Fix null description in the scrapper.ts
 
-- Make the scrapper more flexible
+- [ ] Make the scrapper more flexible
 
-- Improve the app UI
+- [x] Improve the app UI
 
-- Generate the Open Graph dynamically with Satori
+- [x] Generate the Open Graph dynamically with Satori
 
-- Dynamically change provider and url of the prisma.schema
+- [ ] Dynamically change provider and url of the prisma.schema
 
-- If the word of the day is a verb, get it's conjugation data
+- [ ] If the word of the day is a verb, get it's conjugation data
 
 ## Run Locally
 
@@ -39,13 +41,13 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  pnpm i -r
+  npm i
 ```
 
 Start the server
 
 ```bash
-  pnpm --filter app run dev
+  npm run dev
 ```
 
 Start the scrapper
