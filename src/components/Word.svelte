@@ -14,9 +14,10 @@
 		const res = await fetch('/api/voicespeech', {
 			method: 'POST'
 		});
-		const uriAudio = await res.blob();
+		const audioArrayBuffer = await res.arrayBuffer();
+		const audioBlob = new Blob([audioArrayBuffer], { type: 'audio/mpeg' });
 
-		const url = URL.createObjectURL(uriAudio);
+		const url = URL.createObjectURL(audioBlob);
 		const audio = new Audio(url);
 		audio.play();
 	};
