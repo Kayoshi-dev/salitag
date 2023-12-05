@@ -10,6 +10,9 @@ export default {
 				gradient: {
 					to: { 'background-position': '200% center' }
 				}
+			},
+			fontFamily: {
+				notoSansTagalog: ['NotoSansTagalog']
 			}
 		}
 	},

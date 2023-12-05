@@ -12,9 +12,21 @@
 >
 	<a href="https://salitag.vercel.app/"
 		>{#if isHovering}
-			<span transition:blur class="absolute w-full flex justify-center">ᜐᜎᜒᜆᜄ᜴ </span>
+			<span transition:blur class="absolute w-full flex justify-center font-notoSansTagalog"
+				>ᜐᜎᜒᜆᜄ᜴
+			</span>
 		{:else}
 			<span transition:blur class="absolute w-full flex justify-center">Salitag</span>
 		{/if}
 	</a>
 </h1>
+
+<style>
+	@font-face {
+		font-family: 'NotoSansTagalog';
+		src: local('NotoSansTagalog'), local('NotoSansTagalog'),
+			url('/fonts/NotoSansTagalog-Regular.ttf');
+		font-weight: normal;
+		font-display: swap;
+	}
+</style>
