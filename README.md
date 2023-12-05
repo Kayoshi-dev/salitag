@@ -1,7 +1,7 @@
 <h1 align="center">Salitag</h1>
 
 <p align="center">
-  <img width="460" height="300" src="./static/preview.png">
+  <img width="460" src="./static/preview.png">
 </p>
 
 Salitag is a little side project I made to help me and encourage me to learn more about the Tagalog language.
@@ -19,6 +19,8 @@ To create this Website I worked with SvelteKit, also, because I needed to fill m
 - [x] Improve the app UI
 
 - [x] Generate the Open Graph dynamically with Satori
+
+- [x] Add pronunciation for the word of the day
 
 - [ ] Dynamically change provider and url of the prisma.schema
 
@@ -60,6 +62,8 @@ Start the scrapper
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`WEBSITE`
+`WEBSITE` (only for the scrapper)
 
 `DATABASE_URL`
+
+`VOICE_SPEECH_API_KEY` (used for the pronunciation)
