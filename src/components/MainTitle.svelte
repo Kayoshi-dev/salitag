@@ -10,7 +10,7 @@
 	on:focus={() => {}}
 	on:mouseleave={() => (isHovering = false)}
 >
-	<a href="https://salitag.vercel.app/"
+	<a href="https://salitag.fr"
 		>{#if isHovering}
 			<span transition:blur class="absolute w-full flex justify-center font-notoSansTagalog"
 				>ᜐᜎᜒᜆᜄ᜴
